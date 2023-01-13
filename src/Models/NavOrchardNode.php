@@ -37,6 +37,16 @@ class NavOrchardNode extends Model
         ];
     }
 
+    public function isCurrentUrl() : Attribute
+    {
+        return Attribute::make(
+            get: function() {
+                $path = trim(str_replace(url('/'), '', $this->url), '/');
+                return request()->is($path);
+            }
+        );
+    }
+
     public function extra() : Attribute
     {
         return Attribute::make(
