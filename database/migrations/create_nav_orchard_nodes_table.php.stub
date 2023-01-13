@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->unsignedInteger('nav_orchard_id');
-            $table->unsignedInteger('parent_id')->default(0);
+            $table->unsignedInteger('parent_id')->nullable();
 
             $table->text('extra')->nullable();
 
