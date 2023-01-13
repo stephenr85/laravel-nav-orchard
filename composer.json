@@ -1,0 +1,39 @@
+{
+    "name": "rushing/laravel-nav-orchard",
+    "description": "",
+    "type": "package",
+    "autoload": {
+        "psr-4": {
+            "Rushing\\NavOrchard\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Stephen Rushing"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "spatie/laravel-package-tools": "^1.14.0",
+        "scotteh/php-dom-wrapper": "^2.0",
+        "staudenmeir/laravel-adjacency-list": "^1.12",
+        "spatie/laravel-translatable": "^6.2"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../*/*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rushing\\NavOrchard\\ServiceProvider"
+            ]
+        }
+    }
+}
