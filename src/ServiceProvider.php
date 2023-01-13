@@ -21,8 +21,8 @@ class ServiceProvider extends PackageServiceProvider
             ->name('nav-orchard')
             ->hasConfigFile()
             ->hasMigrations([
-                'create_nav_orchard_table',
-                'create_nav_orchard_node_table',
+                'create_nav_orchards_table',
+                'create_nav_orchard_nodes_table',
             ])
             ->hasInstallCommand(function(InstallCommand $command) {
                 $command

@@ -4,11 +4,11 @@ namespace Rushing\NavOrchard\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Rushing\NavOrchard\Models\NavOrchardTree;
+use Rushing\NavOrchard\Models\NavOrchard;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class NavOrchardTreeSeeder extends Seeder
+class NavOrchardSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,11 +18,14 @@ class NavOrchardTreeSeeder extends Seeder
     public function run()
     {
 
-        $tree = NavOrchardTree::firstOrCreate(['slug' => 'main'], [
+        $orchard = NavOrchard::firstOrCreate(['slug' => 'main'], [
             'name' => 'Main Navigation',
         ]);
 
-        $tree->nodes()->firstOrCreate()
+        $orchard->nodes()->firstOrCreate([
+            'name' => 'Home',
+            'slug' => 'home',
+        ]);
 
     }
 }

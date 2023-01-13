@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nav_orchard_node', function (Blueprint $table) {
+        Schema::create('nav_orchard_nodes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
@@ -29,8 +29,6 @@ return new class extends Migration
 
             $table->string('subject_type')->nullable();
             $table->string('subject_id')->nullable();
-            $table->string('subject_name_property')->nullable();
-            $table->string('subject_url_property')->nullable();
 
             $table->index('slug');
             $table->index('nav_orchard_id');
@@ -47,6 +45,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nav_orchard_node');
+        Schema::dropIfExists('nav_orchard_nodes');
     }
 };
