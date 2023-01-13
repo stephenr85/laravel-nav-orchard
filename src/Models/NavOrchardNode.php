@@ -23,6 +23,7 @@ class NavOrchardNode extends Model
         'extra',
         'subject_type',
         'subject_id',
+        'url',
     ];
 
     public function getCustomPaths()
