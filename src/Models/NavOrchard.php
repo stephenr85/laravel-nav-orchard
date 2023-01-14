@@ -43,13 +43,13 @@ class NavOrchard extends Model
 
     public function flatTrees()
     {
-        $trees = NavOrchardNode::tree()->where('nav_orchard_id', $this->id)->get();
+        $trees = NavOrchardNode::tree()->where('nav_orchard_id', $this->id)->orderBy('depth')->orderBy('order')->get();
         return $trees;
     }
 
     public function trees()
     {
-        $trees = NavOrchardNode::tree()->where('nav_orchard_id', $this->id)->get()->toTree();
+        $trees = NavOrchardNode::tree()->where('nav_orchard_id', $this->id)->orderBy('order')->get()->toTree();
         return $trees;
     }
 }
