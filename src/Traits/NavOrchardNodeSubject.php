@@ -8,7 +8,7 @@ trait NavOrchardNodeSubject {
 
     public static function bootNavOrchardNodeSubject()
     {
-        self::saving(function($subject) {
+        self::saved(function($subject) {
             dispatch(function() use ($subject) {
                 $subject->navOrchardNodes()->get()->each(function($node) use ($subject) {
                     $name = $subject->navOrchardNodeName();
