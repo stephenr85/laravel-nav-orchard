@@ -59,9 +59,9 @@ class NavOrchardNode extends Model
         );
     }
 
-    public static function whereSubject($subject)
+    public function scopeWhereSubject($query, $subject)
     {
-        return self::where([
+        $query->where([
             'subject_type' => get_class($subject),
             'subject_id' => $subject->id,
         ]);

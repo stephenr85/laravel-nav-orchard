@@ -52,4 +52,18 @@ class NavOrchard extends Model
         $trees = NavOrchardNode::tree()->where('nav_orchard_id', $this->id)->orderBy('order')->get()->toTree();
         return $trees;
     }
+
+    public function findTreesBySubject($subject, $constraint = null)
+    {
+        $nodes = NavOrchardNode::with('rootAncestor')->whereSubject($subject)->where('nav_orchard_id', $this->id)->get();
+
+        $trees = NavOrchardNode::treeOf(function($query) use ($nodes, $constraint) {
+            $query->whereIn('id', $nodes->pluck('rootAncestor.id'));
+            if(is_callable($constraint)) {
+                $constraint($query);
+            }
+        })->get()->toTree();
+
+        return $trees;
+    }
 }
