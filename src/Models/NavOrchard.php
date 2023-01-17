@@ -62,7 +62,7 @@ class NavOrchard extends Model
             if(is_callable($constraint)) {
                 $constraint($query);
             }
-        })->get()->toTree();
+        })->orderBy('order')->get()->toTree();
 
         return $trees;
     }
