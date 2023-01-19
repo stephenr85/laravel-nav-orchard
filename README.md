@@ -45,3 +45,8 @@ In your controller or view, get the trees with a page. Sometimes a subject may b
 $tree = orchard('main')->findTreesBySubject($page)->first();
 ```
 
+### Extra data
+You can attach misc. data to a node in the extra field, which will automatically be serialized/deserialized.
+```php
+$node->extra = ['hi mom!'];
+```
